@@ -1,5 +1,4 @@
-# base_url = "https://kooistracs.nl"
-base_url = "https://kooistracs.github.io/kooistracs.nl/"
+base_url = "https://kooistracs.nl"
 title = "KCS"
 description = "Kooistra Cyber Solutions"
 author = "Connor Kooistra"
