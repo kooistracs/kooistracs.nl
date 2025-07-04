@@ -1,5 +1,5 @@
 on: push
-name: Build Zola site
+name: build-zola
 jobs:
   build:
     runs-on: ubuntu-latest
