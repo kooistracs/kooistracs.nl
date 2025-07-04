@@ -1,0 +1,4 @@
+{% set header = get_page(path="header.md") %}
+<header>
+  {{ header.content | markdown | safe }}
+</header>

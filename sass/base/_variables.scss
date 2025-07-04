@@ -1,0 +1,17 @@
+// color scheme
+$background: #1a1a1a; // Almost black, deep gray
+$text: #eaeaea; // Soft off-white
+$primary: #ff1744; // Bright red
+$secondary: #1976d2; // Deep blue
+$accent: #00e676; // Neon green
+
+// font
+$text-color: #222;
+$font-stack: "Inter", sans-serif;
+$font-size: 16px;
+
+$breakpoints: (
+  "small": 480px,
+  "medium": 768px,
+  "large": 1024px
+);

@@ -1,0 +1,4 @@
+{% set footer = get_page(path="footer.md") %}
+<footer>
+  {{ footer.content | markdown | safe }}
+</footer>

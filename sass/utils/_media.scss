@@ -1,0 +1,13 @@
+@use "../base/variables" as *;
+
+@mixin respond($size) {
+    @if $size == small {
+        @media (max-width: 480px) { @content; }
+    }
+    @else if $size == medium {
+        @media (max-width: 768px) { @content; }
+    }
+    @else if $size == large {
+        @media (max-width: 1024px) { @content; }
+    }
+}
