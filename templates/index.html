@@ -1,11 +1,16 @@
 {% extends "base.html" %}
 
-{% block header %}
-  {% include "header.html" %}
-{% endblock %}
-
 {% block content %}
-  {{ section.content | markdown | safe }}
+  <section class="hero">
+    <div class="container">
+      <!-- <h1>{{ section.title }}</h1> -->
+      <p>{{ section.description }}</p>
+    </div>
+  </section>
+
+  <section class="services">
+    {{ section.content | markdown | safe }}
+  </section>
 {% endblock content %}
 
 {% block footer %}

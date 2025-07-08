@@ -3,31 +3,23 @@
 
 body {
     padding-top: 30px;
-    width: 900px;
+    width: 80%;
     margin: 0 auto;
     background-color: $background;
     font-size: $font-size;
     font-family: $font-stack;
     color: $text;
     font-weight: 400;
+    // text-align: center;
 }
 
-header {
-    width: 270px;
-    float: left;
-    position: fixed;
-}
+// header {}
 
 section {
-    width: 500px;
-    float: right;
     padding-bottom: 50px;
 }
 
 footer {
-    width: 270px;
-    float: left;
-    position: fixed;
     bottom: 15px;
 }
 
@@ -39,11 +31,10 @@ footer {
 
     section {
         width: 100%;
-        float: none;
         padding-bottom: 30px;
     }
 
-    header, footer {
+    footer {
         position: static;
         width: 100%;
         text-align: center;
@@ -51,7 +42,7 @@ footer {
 }
 
 @include respond(medium) {
-    header, footer {
+    footer {
         position: static;
         float: none;
         display: flex;
@@ -76,7 +67,7 @@ footer {
         font-size: 14px;
     }
 
-    header, footer {
+    footer {
         width: 100%;
         float: none;
         text-align: center;
