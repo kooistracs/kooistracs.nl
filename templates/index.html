@@ -3,9 +3,9 @@
 {% block content %}
   <section class="hero">
     <div class="container">
-      <h1>{{ section.title }}</h1>
-      {{ section.description }}
-      {{ section.content | markdown | safe }}
+      <h1>{{ config.title }} | {{ config.description }}</h1>
+      {{ section.title }}
+      {{ section.content | safe }}
     </div>
   </section>
 
