@@ -10,10 +10,8 @@
   </head>
 
   <body class="preload">
-    <section>
-      {% block content %} 
-      {% endblock %}
-    </section>
+    {% block content %} 
+    {% endblock %}
     {% include "footer.html" %}
     <script>
       window.addEventListener("load", function() {

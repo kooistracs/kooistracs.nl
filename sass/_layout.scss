@@ -2,80 +2,92 @@
 @use "utils/media" as *;
 
 body {
-    padding-top: 30px;
-    width: 80%;
     margin: 0 auto;
     background-color: $background;
     font-size: $font-size;
     font-family: $font-stack;
     color: $text;
     font-weight: 400;
-    // text-align: center;
 }
 
-// header {}
-
 section {
-    padding-bottom: 50px;
+    padding: 2rem 0;
+}
+
+.hero {
+    background-image: 
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 1.0)),
+        url('/cloud.jpg');
+    background-size:cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 45vh;
+    padding-bottom: 5vh;
+    color: white;
+}
+
+.container {
+    width: 85%;
+    padding: 0 10rem;
 }
 
 footer {
-    bottom: 15px;
+    text-align: center;
+    padding: 1rem;
 }
 
-@include respond(large) {
-    body {
-        width: 95%;
-        padding: 30px;
-    }
+// @include respond(large) {
+//     body {
+//         width: 95%;
+//     }
 
-    section {
-        width: 100%;
-        padding-bottom: 30px;
-    }
+//     section {
+//         width: 100%;
+//         padding-bottom: 30px;
+//     }
 
-    footer {
-        position: static;
-        width: 100%;
-        text-align: center;
-    }
-}
+//     footer {
+//         position: static;
+//         width: 100%;
+//         text-align: center;
+//     }
+// }
 
-@include respond(medium) {
-    footer {
-        position: static;
-        float: none;
-        display: flex;
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
+// @include respond(medium) {
+//     footer {
+//         position: static;
+//         float: none;
+//         display: flex;
+//         width: 100%;
+//         flex-direction: column;
+//         align-items: center;
 
-    }
+//     }
 
-    body {
-        padding: 10px;
-    }
+//     body {
+//         // padding: 10px;
+//     }
 
-    section {
-        padding-bottom: 20px;
-    }
-}
+//     section {
+//         padding-bottom: 20px;
+//     }
+// }
 
-@include respond(small) {
-    body {
-        padding: 10px;
-        font-size: 14px;
-    }
+// @include respond(small) {
+//     body {
+//         // padding: 10px;
+//         font-size: 14px;
+//     }
 
-    footer {
-        width: 100%;
-        float: none;
-        text-align: center;
-    }
+//     footer {
+//         width: 100%;
+//         float: none;
+//         text-align: center;
+//     }
 
-    section {
-        width: 100%;
-        float: none;
-        padding-bottom: 10px;
-    }
-}
+//     section {
+//         width: 100%;
+//         float: none;
+//         padding-bottom: 10px;
+//     }
+// }

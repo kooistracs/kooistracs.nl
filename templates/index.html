@@ -3,16 +3,38 @@
 {% block content %}
   <section class="hero">
     <div class="container">
-      <!-- <h1>{{ section.title }}</h1> -->
-      <p>{{ section.description }}</p>
+      <h1>{{ section.title }}</h1>
+      {{ section.description }}
+      {{ section.content | markdown | safe }}
     </div>
   </section>
 
+  {% set services = get_page(path="services.md") %}
   <section class="services">
-    {{ section.content | markdown | safe }}
+    <div class="container">
+      {{ services.content | safe }}
+    </div>
   </section>
-{% endblock content %}
 
-{% block footer %}
-  {% include "footer.html" %}
-{% endblock %}
+  {% set testimonials = get_page(path="testimonials.md") %}
+  <section class="testimonials">
+    <div class="container">
+      {{ testimonials.content | safe }}
+    </div>
+  </section>
+
+  {% set cta = get_page(path="cta.md") %}
+  <section class="about-us">
+    <div class="container">
+      {{ cta.content | safe }}
+    </div>
+  </section>
+
+  {% set contact = get_page(path="contact.md") %}
+  <section class="contact">
+    <div class="container">
+      {{ contact.content | safe }}
+    </div>
+  </section>
+
+{% endblock content %}
