@@ -14,6 +14,11 @@ section {
     padding: 2rem 0;
 }
 
+.container {
+    width: 85%;
+    padding: 0 10rem;
+}
+
 .hero {
     background-image: 
         linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgb(24, 6, 88)),
@@ -26,9 +31,9 @@ section {
     color: white;
 }
 
-.container {
-    width: 85%;
-    padding: 0 10rem;
+// TODO: see testimonials.md
+.testimonials {
+    display: none;
 }
 
 footer {
