@@ -29,7 +29,6 @@ dev:
     wait
 
 build:
-    echo "Building production site..."
     echo "Building and optimizing CSS..."
     just build-css --minify
     echo "Building Zola site..."

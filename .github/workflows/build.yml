@@ -12,6 +12,14 @@ jobs:
       - name: checkout
         uses: actions/checkout@v4
 
+      - name: install nix
+        uses: cachix/install-nix-action@v31
+        with: 
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build CSS only
+        run: nix develop --command just build-css --minify
+
       - name: build
         uses: shalzz/zola-deploy-action@master
         env:
