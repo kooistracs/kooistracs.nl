@@ -18,7 +18,7 @@ jobs:
           github_access_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build CSS only
-        run: nix develop --command just build-css --minify
+        run: nix develop --command just build-css
 
       - name: build
         uses: shalzz/zola-deploy-action@master
