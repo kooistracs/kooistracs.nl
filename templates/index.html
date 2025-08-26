@@ -1,40 +1,175 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <section class="hero">
-    <div class="container">
-      <h1>{{ config.title }} | {{ config.description }}</h1>
-      {{ section.title }}
-      {{ section.content | safe }}
+  <section class="hero-gradient text-white section-padding px-4">
+    <div class="container mx-auto max-w-6xl">
+      <div class="text-center">
+        <div class="text-xl md:text-2xl text-blue-100 leading-relaxed max-w-4xl mx-auto">
+          {{ section.content | safe }}
+        </div>
+        <div class="mt-12">
+          <a href="#contact" class="inline-flex items-center bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg">
+            {{ section.extra.cta | safe }}
+            <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
-
+  
   {% set services = get_page(path="services.md") %}
-  <section class="services">
-    <div class="container">
-      {{ services.content | safe }}
+  <section class="section-padding px-4 bg-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-15">
+      <div class="absolute top-10 right-10 w-40 h-40 bg-blue-100 rounded-full"></div>
+      <div class="absolute top-1/3 left-10 w-28 h-28 bg-green-100 rounded-full"></div>
+      <div class="absolute bottom-32 left-1/4 w-20 h-20 bg-purple-100 rounded-full"></div>
+      <div class="absolute bottom-10 right-1/3 w-36 h-36 bg-gray-100 rounded-full"></div>
+      <div class="absolute top-2/3 right-1/4 w-16 h-16 bg-indigo-100 rounded-full"></div>
+      <div class="absolute top-1/4 left-1/2 w-8 h-8 bg-blue-200 rounded-full"></div>
+      <div class="absolute bottom-1/4 left-2/3 w-12 h-12 bg-green-200 rounded-full"></div>
+    </div>
+    
+    <div class="container mx-auto max-w-7xl relative">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
+          {{ services.description }}
+        </h2>
+      </div>
+      
+      <div class="grid md:grid-cols-3 lg:grid-cols-3 gap-8 mb-8">
+        {% for service in services.extra.services %}
+        <div class="service-card">
+          <div class="w-12 h-12 bg-{{ service.icon_color }}-100 rounded-lg flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-{{ service.icon_color }}-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ service.icon_path }}"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-gray-900 mb-4">
+            {{ service.title }}
+          </h3>
+          <div class="text-gray-600">
+            {{ service.description | markdown | safe }}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
     </div>
   </section>
 
-  {% set testimonials = get_page(path="testimonials.md") %}
-  <section class="testimonials">
-    <div class="container">
-      {{ testimonials.content | safe }}
+  <!-- Add this after your services section -->
+  {% set tech = get_page(path="technologies.md") %}
+  <section class="section-padding px-4 bg-gray-50 relative overflow-hidden">   
+    <div class="container mx-auto max-w-6xl relative">
+      <div class="text-center mb-16">
+        <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          {{ tech.title }}
+        </h3>
+        <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+          {{ tech.description }}
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8 mb-12">
+        
+        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div class="w-12 h-12 bg-{{ tech.extra.backend_icon_color }}-100 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-{{ tech.extra.backend_icon_color }}-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ tech.extra.backend_icon_path }}"></path>
+            </svg>
+          </div>
+          <h4 class="text-xl font-bold text-gray-900 mb-4">{{ tech.extra.backend_title }}</h4>
+          <div class="flex flex-wrap gap-2">
+            {% for tech in tech.extra.backend_techs %}
+              {% set_global tech_color = tech.extra.backend_colors[loop.index0] %}
+              <span class="tech-badge bg-{{ tech_color }}-100 text-{{ tech_color }}-800 hover:bg-{{ tech_color }}-200 transition-colors">
+                {{ tech }}
+              </span>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div class="w-12 h-12 bg-{{ tech.extra.databases_icon_color }}-100 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-{{ tech.extra.databases_icon_color }}-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ tech.extra.databases_icon_path }}"></path>
+            </svg>
+          </div>
+          <h4 class="text-xl font-bold text-gray-900 mb-4">{{ tech.extra.databases_title }}</h4>
+          <div class="flex flex-wrap gap-2">
+            {% for tech in tech.extra.databases_techs %}
+              {% set_global tech_color = tech.extra.databases_colors[loop.index0] %}
+              <span class="tech-badge bg-{{ tech_color }}-100 text-{{ tech_color }}-800 hover:bg-{{ tech_color }}-200 transition-colors">
+                {{ tech }}
+              </span>
+            {% endfor %}
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div class="w-12 h-12 bg-{{ tech.extra.infra_icon_color }}-100 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-{{ tech.extra.infra_icon_color }}-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ tech.extra.infra_icon_path }}"></path>
+            </svg>
+          </div>
+          <h4 class="text-xl font-bold text-gray-900 mb-4">{{ tech.extra.infra_title }}</h4>
+          <div class="flex flex-wrap gap-2">
+            {% for tech in tech.extra.infra_techs %}
+              {% set_global tech_color = tech.extra.infra_colors[loop.index0] %}
+              <span class="tech-badge bg-{{ tech_color }}-100 text-{{ tech_color }}-800 hover:bg-{{ tech_color }}-200 transition-colors">
+                {{ tech }}
+              </span>
+            {% endfor %}
+          </div>
+        </div>
+        
+        <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+          <div class="w-12 h-12 bg-{{ tech.extra.cloud_icon_color }}-100 rounded-xl flex items-center justify-center mb-6">
+            <svg class="w-6 h-6 text-{{ tech.extra.cloud_icon_color }}-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ tech.extra.cloud_icon_path }}"></path>
+            </svg>
+          </div>
+          <h4 class="text-xl font-bold text-gray-900 mb-4">{{ tech.extra.cloud_title }}</h4>
+          <div class="flex flex-wrap gap-2">
+            {% for tech in tech.extra.cloud_techs %}
+              {% set_global tech_color = tech.extra.cloud_colors[loop.index0] %}
+              <span class="tech-badge bg-{{ tech_color }}-100 text-{{ tech_color }}-800 hover:bg-{{ tech_color }}-200 transition-colors">
+                {{ tech }}
+              </span>
+            {% endfor %}
+          </div>
+        </div>
+      </div>     
     </div>
   </section>
 
   {% set cta = get_page(path="cta.md") %}
-  <section class="about-us">
-    <div class="container">
-      {{ cta.content | safe }}
+  <section class="section-padding px-4 bg-gradient-to-br from-blue-50 to-indigo-100 relative">
+    <div class="absolute inset-0 opacity-20">
+      <div class="absolute top-20 left-20 w-32 h-32 bg-blue-200 rounded-full"></div>
+      <div class="absolute bottom-20 right-20 w-24 h-24 bg-indigo-200 rounded-full"></div>
+      <div class="absolute top-1/2 left-1/3 w-16 h-16 bg-purple-200 rounded-full"></div>
+    </div>
+    
+    <div class="container mx-auto max-w-4xl relative text-center">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8">
+        {{ cta.title | safe }}
+      </h2>
+      
+      <div class="prose prose-xl prose-gray mx-auto mb-12 text-center">
+        {{ cta.content | safe }}
+      </div>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="mailto:{{ config.extra.email }}" 
+          class="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-10 py-5 rounded-xl font-bold text-lg transition-all duration-200 shadow-xl hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105">
+          <svg class="mr-2 w-5 h-5 group-hover:animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+          </svg>
+          {{ cta.extra.cta_button | safe }}
+        </a>
+      </div>
     </div>
   </section>
-
-  {% set contact = get_page(path="contact.md") %}
-  <section class="contact">
-    <div class="container">
-      {{ contact.content | safe }}
-    </div>
-  </section>
-
 {% endblock content %}
