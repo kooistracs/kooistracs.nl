@@ -1,5 +1,5 @@
 {
-  description = "Zola SSG dev environment";
+  description = "Zola + TailwindCSS dev. environment";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/25.05";
   
@@ -15,6 +15,8 @@
         default = pkgs.mkShell {
           packages = with pkgs; [
             zola
+            tailwindcss
+            just
           ];
         };
       });

@@ -1,10 +1,11 @@
 base_url = "https://kooistracs.nl"
-title = "KCS"
-description = "Kooistra Cyber Solutions"
+title = "Kooistra Cyber Solutions"
 author = "Connor Kooistra"
 
 compile_sass = true
 build_search_index = false
 
-[markdown]
-highlight_code = true
+[extra]
+github = "https://github.com/kooistracs"
+linkedin = "https://www.linkedin.com/company/kooistracs/"
+email = "contact@kooistracs.nl"

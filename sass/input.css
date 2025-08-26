@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom component classes */
+@layer components {
+  .hero-gradient {
+    @apply bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900;
+  }
+  
+  .service-card {
+    @apply bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300;
+  }
+  
+  .tech-badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+}

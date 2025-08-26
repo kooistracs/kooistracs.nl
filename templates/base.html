@@ -5,17 +5,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="{{ config.description }}" />
-    <link rel="stylesheet" href="{{ get_url(path='main.css') }}">
+    
+    <link rel="stylesheet" href="{{ get_url(path='style.css') }}">
     <link rel="icon" type="image/svg+xml" href="{{ get_url(path='favicon.svg') }}">
+    
+    <link rel="preload" href="{{ get_url(path='style.css') }}" as="style">
   </head>
 
-  <body class="preload">
-    {% include "header.html" %}
-    <section>
-      {% block content %} 
-      {% endblock %}
-    </section>
+  <body class="preload min-h-screen bg-gray-800">
+    {% block content %} 
+    {% endblock %}
     {% include "footer.html" %}
+    
     <script>
       window.addEventListener("load", function() {
         document.body.classList.remove("preload"); // wait for page content to fully load before rendering
