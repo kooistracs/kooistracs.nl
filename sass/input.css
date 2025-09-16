@@ -2,11 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Vertiga';
+  src: url('/fonts/VERTIGA-REGULAR.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vertiga';
+  src: url('/fonts/VERTIGA-BOLD.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vertiga';
+  src: url('/fonts/VERTIGA-BLACK.otf') format('opentype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Custom component classes */
 @layer components {
-  .hero-gradient {
-    @apply bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900;
+  .hero {
+    @apply bg-[#070838];
   }
+
   
   .service-card {
     @apply bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300;

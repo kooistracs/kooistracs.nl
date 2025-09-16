@@ -588,14 +588,9 @@ video {
   }
 }
 
-.hero-gradient {
-  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
-  --tw-gradient-from: #1e3a8a var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(30 58 138 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-  --tw-gradient-to: rgb(30 64 175 / 0)  var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), #1e40af var(--tw-gradient-via-position), var(--tw-gradient-to);
-  --tw-gradient-to: #312e81 var(--tw-gradient-to-position);
+.hero {
+  --tw-bg-opacity: 1;
+  background-color: rgb(7 8 56 / var(--tw-bg-opacity, 1));
 }
 
 .service-card {
@@ -648,6 +643,10 @@ video {
 
 .relative {
   position: relative;
+}
+
+.sticky {
+  position: sticky;
 }
 
 .inset-0 {
@@ -710,6 +709,10 @@ video {
   right: 5rem;
 }
 
+.top-0 {
+  top: 0px;
+}
+
 .top-1\/2 {
   top: 50%;
 }
@@ -732,6 +735,10 @@ video {
 
 .top-20 {
   top: 5rem;
+}
+
+.z-50 {
+  z-index: 50;
 }
 
 .mx-auto {
@@ -887,6 +894,14 @@ video {
   width: 2rem;
 }
 
+.w-auto {
+  width: auto;
+}
+
+.min-w-0 {
+  min-width: 0px;
+}
+
 .max-w-2xl {
   max-width: 42rem;
 }
@@ -919,6 +934,14 @@ video {
   align-items: center;
 }
 
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
 .justify-center {
   justify-content: center;
 }
@@ -933,6 +956,12 @@ video {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.space-x-4 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1rem * var(--tw-space-x-reverse));
+  margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .space-y-2 > :not([hidden]) ~ :not([hidden]) {
@@ -961,8 +990,17 @@ video {
   border-radius: 0.75rem;
 }
 
+.border-b {
+  border-bottom-width: 1px;
+}
+
 .border-t {
   border-top-width: 1px;
+}
+
+.border-gray-200 {
+  --tw-border-opacity: 1;
+  border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
 }
 
 .border-gray-700 {
@@ -1049,6 +1087,11 @@ video {
   --tw-gradient-to: #e0e7ff var(--tw-gradient-to-position);
 }
 
+.object-contain {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 .p-8 {
   padding: 2rem;
 }
@@ -1091,6 +1134,10 @@ video {
   text-align: center;
 }
 
+.font-vertiga {
+  font-family: Vertiga;
+}
+
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -1121,6 +1168,11 @@ video {
 
 .leading-relaxed {
   line-height: 1.625;
+}
+
+.text-\[\#070838\] {
+  --tw-text-opacity: 1;
+  color: rgb(7 8 56 / var(--tw-text-opacity, 1));
 }
 
 .text-blue-100 {
@@ -1172,6 +1224,12 @@ video {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
+.shadow-sm {
+  --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .shadow-xl {
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
@@ -1204,6 +1262,42 @@ video {
   transition-duration: 300ms;
 }
 
+@font-face {
+  font-family: 'Vertiga';
+
+  src: url('/fonts/VERTIGA-REGULAR.otf') format('opentype');
+
+  font-weight: 400;
+
+  font-style: normal;
+
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vertiga';
+
+  src: url('/fonts/VERTIGA-BOLD.otf') format('opentype');
+
+  font-weight: 700;
+
+  font-style: normal;
+
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Vertiga';
+
+  src: url('/fonts/VERTIGA-BLACK.otf') format('opentype');
+
+  font-weight: 900;
+
+  font-style: normal;
+
+  font-display: swap;
+}
+
 /* Custom component classes */
 
 .hover\:-translate-y-1:hover {
@@ -1230,6 +1324,11 @@ video {
 .hover\:text-blue-300:hover {
   --tw-text-opacity: 1;
   color: rgb(147 197 253 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-gray-700:hover {
+  --tw-text-opacity: 1;
+  color: rgb(55 65 81 / var(--tw-text-opacity, 1));
 }
 
 .hover\:text-white:hover {

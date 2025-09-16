@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'vertiga': ['Vertiga'],
+      },
       typography: {
         DEFAULT: {
           css: {
@@ -27,11 +30,11 @@ module.exports = {
         primary: {
           50: '#eff6ff',
           100: '#dbeafe',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
+          500: '#070838',
+          600: '#070838',
+          700: '#070838',
+          800: '#070838',
+          900: '#070838',
         },
       },
     },

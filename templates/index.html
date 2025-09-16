@@ -1,14 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <section class="hero-gradient text-white section-padding px-4">
+  <section class="hero font-vertiga text-white section-padding px-4">
     <div class="container mx-auto max-w-6xl">
       <div class="text-center">
         <div class="text-xl md:text-2xl text-blue-100 leading-relaxed max-w-4xl mx-auto">
           {{ section.content | safe }}
         </div>
         <div class="mt-12">
-          <a href="#contact" class="inline-flex items-center bg-white text-blue-900 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg">
+          <a href="#contact" class="inline-flex items-center bg-white text-blue-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors duration-200 shadow-lg">
             {{ section.extra.cta | safe }}
             <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
@@ -20,7 +20,7 @@
   </section>
   
   {% set services = get_page(path="services.md") %}
-  <section class="section-padding px-4 bg-white relative overflow-hidden">
+  <section class="section-padding px-4 bg-white font-vertiga relative overflow-hidden">
     <div class="absolute inset-0 opacity-15">
       <div class="absolute top-10 right-10 w-40 h-40 bg-blue-100 rounded-full"></div>
       <div class="absolute top-1/3 left-10 w-28 h-28 bg-green-100 rounded-full"></div>
@@ -58,9 +58,8 @@
     </div>
   </section>
 
-  <!-- Add this after your services section -->
   {% set tech = get_page(path="technologies.md") %}
-  <section class="section-padding px-4 bg-gray-50 relative overflow-hidden">   
+  <section class="section-padding px-4 bg-gray-50 font-vertiga relative overflow-hidden">   
     <div class="container mx-auto max-w-6xl relative">
       <div class="text-center mb-16">
         <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -125,7 +124,7 @@
         </div>
         
         <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
-          <div class="w-12 h-12 bg-{{ tech.extra.cloud_icon_color }}-100 rounded-xl flex items-center justify-center mb-6">
+          <div class="w-12 h-12 bg-{{ tech.extra.cloud_icon_color }}-100 rounded-xl  flex items-center justify-center mb-6">
             <svg class="w-6 h-6 text-{{ tech.extra.cloud_icon_color }}-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ tech.extra.cloud_icon_path }}"></path>
             </svg>
@@ -145,7 +144,7 @@
   </section>
 
   {% set cta = get_page(path="cta.md") %}
-  <section class="section-padding px-4 bg-gradient-to-br from-blue-50 to-indigo-100 relative">
+  <section class="section-padding px-4 font-vertiga bg-gradient-to-br from-blue-50 to-indigo-100 relative">
     <div class="absolute inset-0 opacity-20">
       <div class="absolute top-20 left-20 w-32 h-32 bg-blue-200 rounded-full"></div>
       <div class="absolute bottom-20 right-20 w-24 h-24 bg-indigo-200 rounded-full"></div>
