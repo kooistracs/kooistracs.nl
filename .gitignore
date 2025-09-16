@@ -25,3 +25,6 @@ public/
 
 # This gets built dynamically through GH Actions
 content/readme.md
+
+# We will not need .envrc generated stuff
+.direnv/
